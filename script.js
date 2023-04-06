@@ -15,7 +15,7 @@ let warning = '';
 let playing = false;
 
 //eventos
-
+document.querySelector('.iniciar').addEventListener('click', iniciar)
 document.querySelector('.reset').addEventListener('click', reset);
 document.querySelector(`div[data-item=a1]`).addEventListener('click', itemClick);
 document.querySelector(`div[data-item=a2]`).addEventListener('click', itemClick);
@@ -45,6 +45,22 @@ function reset() {
     for (let i in square) {
         square[i] = '';
     }
+
+    playing = true;
+
+    renderSquare();
+    renderInfo();
+}
+
+function iniciar() {
+    let random = Math.floor(Math.random() * 2);
+    if (random === 0) {
+        player = 'X';
+    } else {
+        player = 'O';
+    }
+
+
 
     playing = true;
 
